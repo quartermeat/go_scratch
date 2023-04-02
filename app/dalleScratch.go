@@ -3,7 +3,6 @@ package app
 import (
 	"context"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
@@ -122,12 +121,12 @@ func RunDalle(description string, imagePath string, maskPath string) {
 	}
 
 	// read in an image
-	imageData, err := ioutil.ReadFile(imagePath)
+	imageData, err := os.ReadFile(imagePath)
 	if err != nil {
 		fmt.Printf("Error reading image file: %v\n", err)
 		os.Exit(1)
 	}
-	maskData, err := ioutil.ReadFile(maskPath)
+	maskData, err := os.ReadFile(maskPath)
 	if err != nil {
 		fmt.Printf("Error reading image file: %v\n", err)
 		os.Exit(1)
